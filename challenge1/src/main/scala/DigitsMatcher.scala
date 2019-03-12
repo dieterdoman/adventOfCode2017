@@ -1,7 +1,7 @@
 object DigitsMatcher {
   def matcher(firstDigit: Int, secondDigit: Int): Option[Int] = {
     if (firstDigit == secondDigit) {
-      return Option(firstDigit)
+      return Some(firstDigit)
     }
     None
   }
