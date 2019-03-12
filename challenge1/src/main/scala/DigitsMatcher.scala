@@ -1,7 +1,7 @@
 object DigitsMatcher {
-  def matcher(firstDigit: Int, secondDigit: Int): Option[Int] = {
-    if (firstDigit == secondDigit) {
-      return Some(firstDigit)
+  def matcher(pair: (Int, Int)): Option[Int] = {
+    if (pair._1 == pair._2) {
+      return Some(pair._1)
     }
     None
   }
@@ -12,7 +12,7 @@ object DigitsMatcher {
     } else {
       val circularList = inputList :+ inputList.head
       val pairs = circularList zip circularList.tail
-      val output = pairs.flatMap(x => DigitsMatcher.matcher(x._1, x._2))
+      val output = pairs.flatMap(DigitsMatcher.matcher)
       output.sum
     }
   }
