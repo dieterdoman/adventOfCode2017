@@ -25,14 +25,14 @@ getRowElementsPairs = map pairs
 pairs :: [a] -> [(a, a)]
 pairs l = [(x,y) | (x:ys) <- tails l, y <- ys]
 
-divisable :: Pair -> Int
-divisable (x, y)
+divisible :: Pair -> Int
+divisible (x, y)
   | x `mod` y == 0 = quot x y
   | y `mod` x == 0 = quot y x
   | otherwise = 0
 
-getDivisableList :: [[Pair]] -> [[Int]]
-getDivisableList = map (map divisable)
+getDivisibleList :: [[Pair]] -> [[Int]]
+getDivisibleList = map (map divisible)
 
 getSumOfRows :: [[Int]] -> [Int]
 getSumOfRows = map sumValues
@@ -56,7 +56,7 @@ checkSum :: String -> Int
 checkSum = sumValues.getDifferenceList.getMinMaxPairList.convertToInteger.splitRowElements.constructRow
 
 checkSumPart2 :: String -> Int
-checkSumPart2 = sumValues.getSumOfRows.getDivisableList.getRowElementsPairs.convertToInteger.splitRowElements.constructRow
+checkSumPart2 = sumValues.getSumOfRows.getDivisibleList.getRowElementsPairs.convertToInteger.splitRowElements.constructRow
 
 inputString :: String
 inputString = "104 240 147 246 123 175 372 71 116 230 260 118 202 270 277 292\n\
